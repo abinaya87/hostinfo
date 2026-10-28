@@ -58,8 +58,7 @@ info"""
  handler.do_GET()
 
  # Verify the correct response
-rx-m-ai-empowered-sw-dev-lab06.md 2026-10-27
-8 / 34self.assertEqual(handler.responses[0], (200, 'OK'))
+ self.assertEqual(handler.responses[0], (200, 'OK'))
  self.assertTrue(handler.headers_sent)
  self.assertEqual(buffer.getvalue(), test_host_info.encode('utf-8'))
 
