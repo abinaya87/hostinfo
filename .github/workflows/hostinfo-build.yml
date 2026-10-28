@@ -31,3 +31,19 @@ jobs:
         run: |
           python -m py_compile python/hostinfo_server.py
           ls -lR python/
+          
+      - name: Verify code builds
+        run: |
+          python -m py_compile python/hostinfo_server.py
+
+      - name: Run unit tests with coverage
+        run: |
+          cd python/
+          coverage run -m unittest discover
+          coverage report -m
+
+      - name: Analyze Test Quality
+        uses: Aetherr-Agency/DeepDive@v1
+        with:
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
