@@ -1,6 +1,9 @@
 name: Host Info Server Build Automation
 
 on:
+  push:
+    paths:
+      - "python/**"
   workflow_dispatch:
 
 jobs:
